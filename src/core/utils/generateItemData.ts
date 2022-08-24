@@ -6,6 +6,7 @@ function generateItemData(item: any) {
         price: item.finalPrice ?? item.price.discounted,
         score: item.customerReviewScore ?? (item.rating?.average ?? 0),
         reviewCount: item.customerReviewCount ?? (item.rating?.total ?? 0),
+        link: item.url ?? item.link,
     };
 }
 

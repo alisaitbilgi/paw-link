@@ -7,6 +7,7 @@ import generateItemData from "../../core/utils/generateItemData";
 import styles from "./Dashboard.module.css";
 import classname from "../../core/utils/classNames";
 import formatPrice from "../../core/utils/formatPrice";
+import calculateStar from "../../core/utils/calculateStar";
 
 export enum OPTIONS {
     User = "User",
@@ -19,6 +20,7 @@ interface State {
     selectedOption: OPTIONS;
     campaignStates: any;
     categoryStates: any;
+    campaignActive: any;
 }
 
 class Dashboard extends Component<unknown, State> {
@@ -28,6 +30,7 @@ class Dashboard extends Component<unknown, State> {
         campaigns: [],
         campaignStates: {},
         categoryStates: {},
+        campaignActive: null,
     };
 
     async componentDidMount() {
@@ -62,6 +65,12 @@ class Dashboard extends Component<unknown, State> {
         });
     }
 
+    handleHover = (id: number | null) => {
+        return () => {
+            this.setState({ campaignActive: id });
+        };
+    }
+
     changeSectionState = (id: string, stateName: string) => {
         return () => {
             const currentStates: any = (this.state as any)[stateName];
@@ -76,6 +85,7 @@ class Dashboard extends Component<unknown, State> {
             campaigns,
             campaignStates,
             categoryStates,
+            campaignActive,
         } = this.state;
 
         return campaigns.map((campaign: any) => {
@@ -129,33 +139,66 @@ class Dashboard extends Component<unknown, State> {
                                                         price,
                                                         score,
                                                         reviewCount,
+                                                        link,
                                                     } = generateItemData(item);
+                                                    const onHover = campaignActive === id;
+                                                    const hoverClassNames = classname(
+                                                        styles.hoover,
+                                                        { [styles.hooverVisible]: onHover },
+                                                    );
+                                                    const itemClassNames = classname(
+                                                        styles.campaignItem,
+                                                        { [styles.campaignItemHovered]: onHover },
+                                                    );
+                                                    const earningClassNames = classname(
+                                                        styles.campaignEarning,
+                                                        { [styles.campaignEarningHovered]: onHover },
+                                                    );
 
                                                     return (
-                                                        <div key={id} className={styles.campaignItem}>
-                                                            <img
-                                                                alt=""
-                                                                className={styles.campaignImg}
-                                                                src={imgUrl}
-                                                                width={200}
-                                                                height={150}
-                                                            />
-                                                            <div className={styles.campaignMeta}>
-                                                                <h3 className={styles.campaignDesc}>{description}</h3>
-                                                                <div className={styles.campaignPrice}>{formatPrice(price)}</div>
-                                                                <div className={styles.campaignRateSection}>
-                                                                    <div className={styles.campaignScore}>
-                                                                        <span className="fa fa-star checked"/>
-                                                                        <span className={styles.score}>{score}</span>
-                                                                    </div>
-                                                                    <div className={styles.campaignReviewContainer}>
-                                                                        <span className={styles.dot}/>
-                                                                        <span className={styles.campaignReviews}>{reviewCount}</span>
-                                                                        <span className={styles.reviewText}>{" Reviews"}</span>
+                                                        <a
+                                                            key={id}
+                                                            style={{ position: "relative" }}
+                                                            onMouseOver={this.handleHover(id)}
+                                                            onMouseLeave={this.handleHover(null)}
+                                                            href={link}
+                                                            target="_blank"
+                                                        >
+                                                            <div className={earningClassNames}>
+                                                                <span>{calculateStar(price)} </span>
+                                                                <span className="fa fa-paw"/>
+                                                                <span>{"  Points"}</span>
+                                                            </div>
+                                                            <div className={itemClassNames}>
+                                                                <img
+                                                                    alt=""
+                                                                    className={styles.campaignImg}
+                                                                    src={imgUrl}
+                                                                    width={200}
+                                                                    height={150}
+                                                                />
+                                                                <div className={styles.campaignMeta}>
+                                                                    <h3 className={styles.campaignDesc}>{description}</h3>
+                                                                    <div className={styles.campaignPrice}>{formatPrice(price)}</div>
+                                                                    <div className={styles.campaignRateSection}>
+                                                                        <div className={styles.campaignScore}>
+                                                                            <span className="fa fa-star checked"/>
+                                                                            <span className={styles.score}>{score.toFixed(1)}</span>
+                                                                        </div>
+                                                                        <div className={styles.campaignReviewContainer}>
+                                                                            <span className={styles.dot}/>
+                                                                            <span className={styles.campaignReviews}>{reviewCount}</span>
+                                                                            <span className={styles.reviewText}>{" Reviews"}</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                            <div className={hoverClassNames}>
+                                                                <button className="resetBtn">
+                                                                    {"Shop Now"}
+                                                                </button>
+                                                            </div>
+                                                        </a>
                                                     );
                                                 })
                                             }
