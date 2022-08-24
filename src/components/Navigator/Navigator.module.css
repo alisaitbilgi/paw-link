@@ -1,0 +1,29 @@
+.navigationWrapper {
+    display: flex;
+    margin: 0;
+    padding: 10px 60px;
+}
+
+.optionsButton {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: transparent none;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    color: #bcb5b9;
+    padding: 0 10px;
+    line-height: 28px;
+}
+
+.optionsButton::before {
+    content: "•";
+    font-size: 40px;
+    margin-right: 5px;
+}
+
+.selected {
+    color: #419bf9;
+}
