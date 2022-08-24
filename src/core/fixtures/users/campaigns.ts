@@ -4,78 +4,78 @@ import barinakMelegiTrend from "../data/trend/barinakMelegi";
 export default [
     {
         name: "Barınak Meleği",
-        id: 111,
+        id: Math.random(),
         categories: [
             {
                 name: "Electronics",
-                id: 1111,
+                id: Math.random(),
                 items: barinakMelegiHeps.filter((each, idx) => idx < 7),
             },
             {
                 name: "Books",
-                id: 2222,
+                id: Math.random(),
                 items: barinakMelegiHeps.filter((each, idx) => idx >= 6 && idx < 10),
             },
             {
                 name: "Health Care",
-                id: 3333,
+                id: Math.random(),
                 items: barinakMelegiHeps.filter((each, idx) => idx >= 10 && idx < 17),
             },
             {
                 name: "Feed",
-                id: 4444,
+                id: Math.random(),
                 items: barinakMelegiHeps.filter((each, idx) => idx >= 16 && idx <= 20),
             },
         ],
     },
     {
         name: "Haytap",
-        id: 222,
+        id: Math.random(),
         categories: [
             {
                 name: "Cat Socks",
-                id: 11111,
+                id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx < 7),
             },
             {
                 name: "Dog Toys",
-                id: 22222,
+                id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 6 && idx < 10),
             },
             {
                 name: "Electronics",
-                id: 33333,
+                id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 10 && idx < 16),
             },
             {
                 name: "Furniture",
-                id: 44444,
+                id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 16 && idx <= 20),
             },
         ],
     },
     {
         name: "Kızılay",
-        id: 333,
+        id: Math.random(),
         categories: [
             {
                 name: "Books",
-                id: 111111,
+                id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx < 7),
             },
             {
                 name: "Baby Care",
-                id: 222222,
+                id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 6 && idx < 10),
             },
             {
                 name: "Home and Kitchen",
-                id: 333333,
+                id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 10 && idx < 16),
             },
             {
                 name: "Luggage",
-                id: 444444,
+                id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 16 && idx <= 20),
             },
         ],

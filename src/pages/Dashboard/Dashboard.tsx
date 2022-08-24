@@ -8,6 +8,7 @@ import styles from "./Dashboard.module.css";
 import classname from "../../core/utils/classNames";
 import formatPrice from "../../core/utils/formatPrice";
 import calculateStar from "../../core/utils/calculateStar";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 export enum OPTIONS {
     User = "User",
@@ -15,22 +16,26 @@ export enum OPTIONS {
 }
 
 interface State {
+    defaultCampaigns: any[];
     campaigns: any[];
     loading: boolean;
     selectedOption: OPTIONS;
     campaignStates: any;
     categoryStates: any;
     campaignActive: any;
+    searchText: string;
 }
 
 class Dashboard extends Component<unknown, State> {
     state = {
         loading: false,
         selectedOption: OPTIONS.User,
+        defaultCampaigns: [],
         campaigns: [],
         campaignStates: {},
         categoryStates: {},
         campaignActive: null,
+        searchText: "",
     };
 
     async componentDidMount() {
@@ -38,7 +43,10 @@ class Dashboard extends Component<unknown, State> {
     }
 
     async componentDidUpdate(_props: any, prevState: State) {
-        if (this.state.selectedOption !== prevState.selectedOption) {
+        const { selectedOption: prevOption } = prevState;
+        const { selectedOption } = this.state;
+
+        if (selectedOption !== prevOption) {
             await this.loadCampaigns();
         }
     }
@@ -49,7 +57,7 @@ class Dashboard extends Component<unknown, State> {
         const { selectedOption } = this.state;
         const campaigns = await getCampaigns(selectedOption);
 
-        this.setState({ campaigns, loading: false }, () => {
+        this.setState({ campaigns, loading: false, defaultCampaigns: campaigns }, () => {
             const campaignStates: any = {};
             const categoryStates: any = {};
 
@@ -223,8 +231,48 @@ class Dashboard extends Component<unknown, State> {
         this.setState({ selectedOption });
     }
 
+    handleSearch = (searchText: string) => {
+        const { defaultCampaigns, campaigns } = this.state;
+
+        this.setState({ searchText }, () => {
+            if (searchText === "") {
+                this.setState({ campaigns: defaultCampaigns });
+
+                return;
+            }
+
+            this.setState({ campaigns: defaultCampaigns });
+
+            const newCampaigns: any = [];
+
+            defaultCampaigns.forEach((campaign: any) => {
+                const { categories } = campaign;
+                const newCategories: any = [];
+
+                categories.forEach((category: any) => {
+                    const { items } = category;
+                    const newItems = items.filter((item: any) => {
+                        const productName = (item.name ?? item.title ?? "").toLocaleLowerCase();
+
+                        return productName.includes(searchText.toLocaleLowerCase());
+                    }) ?? [];
+
+                    if (newItems.length > 0) {
+                        newCategories.push({ ...category, items: newItems });
+                    }
+                });
+
+                if (newCategories.length > 0) {
+                    newCampaigns.push({ ...campaign, categories: newCategories });
+                }
+            });
+
+            this.setState({ campaigns: newCampaigns });
+        });
+    }
+
     render() {
-        const { loading } = this.state;
+        const { loading, selectedOption } = this.state;
 
         return(
             <div className="pageContainer">
@@ -233,6 +281,10 @@ class Dashboard extends Component<unknown, State> {
                     options={[OPTIONS.User, OPTIONS.Product]}
                     onSelect={this.setSelectedOption}
                 />
+                {
+                    selectedOption === OPTIONS.Product &&
+                    <SearchBar onSearch={this.handleSearch}/>
+                }
                 <div className={styles.dashboardContent}>
                     {
                         loading

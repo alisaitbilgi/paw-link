@@ -1,0 +1,21 @@
+.searchBarContainer {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.searchBar {
+    all: unset;
+    width: 180px;
+    font-size: 12px;
+    height: 24px;
+    padding: 2px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(165, 168, 166, 0.4);
+    color: #333333;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: text;
+}
