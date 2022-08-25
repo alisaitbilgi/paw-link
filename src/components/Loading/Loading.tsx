@@ -1,9 +1,10 @@
 import { Component } from "react";
+import styles from "./Loading.module.css";
 
 class Loading extends Component<any, any> {
     render() {
         return(
-            <div>...</div>
+            <div className={styles.loading}>...</div>
         );
     }
 }

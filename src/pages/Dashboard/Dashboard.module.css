@@ -3,6 +3,7 @@
     flex-direction: column;
     flex: 1;
     padding: 30px 60px;
+    min-height: calc(100vh - 250px);
 }
 
 .campaignBox, .categoryBox {

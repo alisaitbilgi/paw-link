@@ -3,11 +3,13 @@ import Header from "../../components/Header/Header";
 import getCampaigns from "../../core/api/getCampaigns";
 import Loading from "../../components/Loading/Loading";
 import generateItemData from "../../core/utils/generateItemData";
-import styles from "./Dashboard.module.css";
 import classname from "../../core/utils/classNames";
 import formatPrice from "../../core/utils/formatPrice";
 import calculateStar from "../../core/utils/calculateStar";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import Footer from "../../components/Footer/Footer";
+
+import styles from "./Dashboard.module.css";
 
 export enum OPTIONS {
     Organization = "Organization",
@@ -287,6 +289,7 @@ class Dashboard extends Component<unknown, State> {
                             : this.getDashboardContent()
                     }
                 </div>
+                <Footer/>
             </div>
         );
     }
