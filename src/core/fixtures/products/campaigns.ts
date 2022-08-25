@@ -29,7 +29,7 @@ export default [
         ],
     },
     {
-        name: "Electronics",
+        name: "Feeding and Watering Supplies",
         id: Math.random(),
         categories: [
             {

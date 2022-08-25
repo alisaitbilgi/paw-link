@@ -7,12 +7,12 @@ export default [
         id: Math.random(),
         categories: [
             {
-                name: "Electronics",
+                name: "Pet Supplies",
                 id: Math.random(),
                 items: barinakMelegiHeps.filter((each, idx) => idx < 7),
             },
             {
-                name: "Books",
+                name: "Grooming",
                 id: Math.random(),
                 items: barinakMelegiHeps.filter((each, idx) => idx >= 6 && idx < 10),
             },
@@ -22,7 +22,7 @@ export default [
                 items: barinakMelegiHeps.filter((each, idx) => idx >= 10 && idx < 17),
             },
             {
-                name: "Feed",
+                name: "Feeding and Watering Supplies",
                 id: Math.random(),
                 items: barinakMelegiHeps.filter((each, idx) => idx >= 16 && idx <= 20),
             },
@@ -43,12 +43,12 @@ export default [
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 6 && idx < 10),
             },
             {
-                name: "Electronics",
+                name: "Collars, Harnesses & Leashes",
                 id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 10 && idx < 16),
             },
             {
-                name: "Furniture",
+                name: "Training & Behavior Aids",
                 id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 16 && idx <= 20),
             },
@@ -59,22 +59,22 @@ export default [
         id: Math.random(),
         categories: [
             {
-                name: "Books",
+                name: "Feeding and Watering Supplies",
                 id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx < 7),
             },
             {
-                name: "Baby Care",
+                name: "Collars, Harnesses & Leashes",
                 id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 6 && idx < 10),
             },
             {
-                name: "Home and Kitchen",
+                name: "Cat Toys",
                 id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 10 && idx < 16),
             },
             {
-                name: "Luggage",
+                name: "Grooming",
                 id: Math.random(),
                 items: barinakMelegiTrend.filter((each, idx) => idx >= 16 && idx <= 20),
             },

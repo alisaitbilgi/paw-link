@@ -163,6 +163,7 @@ class Dashboard extends Component<unknown, State> {
                                                         styles.campaignEarning,
                                                         { [styles.campaignEarningHovered]: onHover },
                                                     );
+                                                    const isTyImg = imgUrl.includes("cdn.dsmcdn.com");
 
                                                     return (
                                                         <a
@@ -183,7 +184,7 @@ class Dashboard extends Component<unknown, State> {
                                                                     alt=""
                                                                     className={styles.campaignImg}
                                                                     src={imgUrl}
-                                                                    width={200}
+                                                                    width={isTyImg ? 160 : 200}
                                                                     height={150}
                                                                 />
                                                                 <div className={styles.campaignMeta}>
