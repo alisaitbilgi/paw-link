@@ -66,3 +66,15 @@
     font-size: 12px;
     color: #ff6000;
 }
+
+.metaPart :global(.resetBtn) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 15px;
+    border-radius: 16px;
+    color: #fff;
+    background-color: #df5f29;
+    position: relative;
+    left: calc(100% - 75px);
+}

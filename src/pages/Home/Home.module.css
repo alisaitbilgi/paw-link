@@ -1,0 +1,126 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+}
+
+.titleContainer {
+    display: flex;
+    padding: 30px;
+    width: 700px;
+}
+
+.titlePart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 260px;
+    flex: 1;
+}
+
+.titleImg {
+    background-image: url("./catdog.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 260px;
+}
+
+.title {
+    background-color: #ddefb2;
+    font-size: 33px;
+    font-weight: bold;
+    color: #1e4a23;
+}
+
+.exp {
+    font-size: 12px;
+    font-weight: bold;
+    width: 70%;
+}
+
+.descPart {
+    display: flex;
+    width: 100%;
+    font-size: 12px;
+}
+
+.rightDesc, .leftDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    padding: 30px;
+}
+
+.leftDesc {
+    background: #ddefb2;
+}
+
+.rightDesc {
+    background: #e2d3f1;
+}
+
+.talk {
+    width: 280px;
+    height: 60px;
+    font-weight: bold;
+}
+
+.descPart :global(.resetBtn) {
+    padding: 8px 15px;
+    border-radius: 16px;
+    color: #fff;
+    background-color: #1e4a23;
+}
+
+.rightDesc :global(.resetBtn) {
+    background-color: #630cd1;
+}
+
+.orgPart {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 30px;
+    width: 700px;
+}
+
+.orgOne, .orgTwo {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.orgTitle {
+    color: #df5f29;
+}
+
+.orgExp {
+    font-size: 12px;
+    width: 350px;
+}
+
+.pawImg {
+    background-image: url("./img1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.infImg {
+    background-image: url("./img2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.orgPart .titlePart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 200px;
+}
