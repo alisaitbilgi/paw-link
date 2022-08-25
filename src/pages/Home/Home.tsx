@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 import styles from "./Home.module.css";
+import {Link} from "react-router-dom";
 
 const expText = "PawLink is the intersection place for those who wants to create a better life for our friends with paws and who wants to shop online. If you shop whatever you want to buy online, you’ll be supporting millions of friends with paws by simply choosing to shop with care.";
 const talkLeft = "Would you like your grocery shops, clothes you buy or anything you pay for means worlds to another life?";
@@ -30,11 +31,15 @@ class Home extends Component<any, any> {
                     <div className={styles.descPart}>
                         <div className={styles.leftDesc}>
                             <span className={styles.talk}>{talkLeft}</span>
-                            <button className="resetBtn">Start Now</button>
+                            <Link to={"/dashboard?Organization"}>
+                                <button className="resetBtn">Start Now</button>
+                            </Link>
                         </div>
                         <div className={styles.rightDesc}>
                             <span className={styles.talk}>{talkRight}</span>
-                            <button className="resetBtn">Start Now</button>
+                            <Link to={"/dashboard?Category"}>
+                                <button className="resetBtn">Start Now</button>
+                            </Link>
                         </div>
                     </div>
                     <div className={styles.orgPart}>

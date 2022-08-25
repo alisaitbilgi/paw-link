@@ -279,8 +279,9 @@ class Dashboard extends Component<unknown, State> {
             <div className="pageContainer">
                 <Header onSelect={this.setSelectedOption}/>
                 {
-                    selectedOption === OPTIONS.Category &&
-                    <SearchBar onSearch={this.handleSearch}/>
+                    selectedOption === OPTIONS.Category
+                        ? <SearchBar onSearch={this.handleSearch}/>
+                        : <div style={{ height: "30px" }}/>
                 }
                 <div className={styles.dashboardContent}>
                     {
