@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 10px 60px;
+    padding: 30px 60px;
 }
 
 .campaignBox, .categoryBox {
@@ -14,7 +14,7 @@
 .campaignBox {
 }
 
-.campaignBoxHidden .chevron, .categoryBoxHidden .chevron {
+.campaignBoxHidden :global(.fa-play), .categoryBoxHidden :global(.fa-play) {
     transform:rotate(270deg);
 }
 
@@ -36,6 +36,9 @@
 
 .campaignName {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     font-size: 18px;
     padding: 8px 5px;
     color: #484848;
@@ -55,12 +58,18 @@
     padding: 0 5px;
 }
 
-.chevron {
-    display: inline-block;
-    margin-left: 7px;
+:global(.fa-play) {
     transform:rotate(90deg);
-    position: relative;
-    top: 1px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.categoryBox :global(.fa-play) {
+    font-size: 10px;
+}
+
+.categoryName {
+    padding: 0 15px;
 }
 
 .campaignItemsContainer, .categoryItemsContainer {
@@ -83,7 +92,7 @@
     display: flex;
     flex-wrap: wrap;
     flex: 1;
-    padding-top: 10px;
+    padding: 10px 30px;
 }
 
 .campaignItem {

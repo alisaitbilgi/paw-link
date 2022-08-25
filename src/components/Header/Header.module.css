@@ -1,8 +1,68 @@
 .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    height: 60px;
+    height: 70px;
+    flex: 1;
     background-color: #fbfbfb;
     font-size: 14px;
+    padding: 0 60px;
+}
+
+.logoContainer {
+    width: 100px;
+    height: 70px;
+}
+
+.logo {
+    background-image: url("./logo.png");
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 28px;
+    transform: scale(0.5);
+    margin-left: -22px;
+}
+
+.metaPart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    height: 70px;
+}
+
+.profileImg {
+    background-image: url("./profile.JPG");
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    box-shadow: 0 3px 12px 0 rgba(223, 95, 41, 0.06);
+    border: solid 2px rgba(223, 95, 41, 1);
+    background-color: #d9d9d9;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.listBy {
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    color: #bcb5b9;
+}
+
+.listBy span {
+    margin-right: 5px;
+}
+
+.profilePart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 60px;
+}
+
+.profileBadge {
+    font-size: 12px;
+    color: #ff6000;
 }

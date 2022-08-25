@@ -4,7 +4,7 @@ import fakeResponse from "../utils/fakeResponse";
 import { OPTIONS } from "../../pages/Dashboard/Dashboard";
 
 async function getCampaigns(selectedOption: OPTIONS) {
-    const campaigns = selectedOption === OPTIONS.User ? userCampaigns : productCampaigns;
+    const campaigns = selectedOption === OPTIONS.Organization ? userCampaigns : productCampaigns;
     const fakeRequest = fakeResponse(campaigns, 350);
 
     return fakeRequest("fakeUrl");

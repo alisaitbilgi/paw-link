@@ -1,6 +1,5 @@
 import { Component } from "react";
 import Header from "../../components/Header/Header";
-import Navigator from "../../components/Navigator/Navigator";
 import getCampaigns from "../../core/api/getCampaigns";
 import Loading from "../../components/Loading/Loading";
 import generateItemData from "../../core/utils/generateItemData";
@@ -11,8 +10,8 @@ import calculateStar from "../../core/utils/calculateStar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 export enum OPTIONS {
-    User = "User",
-    Product = "Product",
+    Organization = "Organization",
+    Category = "Category",
 }
 
 interface State {
@@ -29,7 +28,7 @@ interface State {
 class Dashboard extends Component<unknown, State> {
     state = {
         loading: false,
-        selectedOption: OPTIONS.User,
+        selectedOption: OPTIONS.Organization,
         defaultCampaigns: [],
         campaigns: [],
         campaignStates: {},
@@ -112,7 +111,7 @@ class Dashboard extends Component<unknown, State> {
                         onClick={this.changeSectionState(campaignId, "campaignStates")}
                     >
                         <span>{campaignName}</span>
-                        <span className={styles.chevron}>{">"}</span>
+                        <span className="fa fa-play"/>
                     </button>
                     <div className={styles.campaignItemsContainer}>
                         {
@@ -135,7 +134,7 @@ class Dashboard extends Component<unknown, State> {
                                             onClick={this.changeSectionState(categoryId, "categoryStates")}
                                         >
                                             <span>{categoryName}</span>
-                                            <span className={styles.chevron}>{">"}</span>
+                                            <span className="fa fa-play"/>
                                         </button>
                                         <div className={styles.categoryItemsContainer}>
                                             {
@@ -276,13 +275,9 @@ class Dashboard extends Component<unknown, State> {
 
         return(
             <div className="pageContainer">
-                <Header/>
-                <Navigator
-                    options={[OPTIONS.User, OPTIONS.Product]}
-                    onSelect={this.setSelectedOption}
-                />
+                <Header onSelect={this.setSelectedOption}/>
                 {
-                    selectedOption === OPTIONS.Product &&
+                    selectedOption === OPTIONS.Category &&
                     <SearchBar onSearch={this.handleSearch}/>
                 }
                 <div className={styles.dashboardContent}>

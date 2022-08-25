@@ -1,7 +1,8 @@
 import { Component } from "react";
-import styles from "./Navigator.module.css";
 import { OPTIONS } from "../../pages/Dashboard/Dashboard";
 import classname from "../../core/utils/classNames";
+
+import styles from "./Navigator.module.css";
 
 interface Props {
     options: OPTIONS[];
@@ -11,7 +12,7 @@ interface Props {
 class Navigator extends Component<Props, any> {
 
     state = {
-        selected: OPTIONS.User,
+        selected: OPTIONS.Organization,
     };
 
     handleClick = (selected: OPTIONS) => () => {
